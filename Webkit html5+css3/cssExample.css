@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@-webkit-keyframes anitest 
+{
+	0% { -webkit-transform: rotate3d(0,0,0,0deg); }
+	100% { -webkit-transform: rotate3d(0,1,1,200deg); }
+}
+@-webkit-keyframes colorani
+{
+	0% { background-color: red; }
+	100% { background-color: blue; }
+}
+
+body { -webkit-perspetive: 500; perspective: 500;}
+div { height: 400px; width: 400px; color: gray; border: 2px solid black; font-size: 20px; }
+
+#aniTEST { -webkit-animation: anitest 3s infinite ease alternate,
+					colorani 4s infinite cubic-bezier(0.25, 0.1, 0.25, 1.0) alternate; }
+
+#logo { height: 100px; width: 300px; -webkit-animation: colorani 6s cubic-bezier(0.25, 0.1, 0.25, 1.0); }
+
+a { border: 2px solid black; }
+//div:hover { -webkit-transform: scale(2); }
