@@ -1,23 +1,36 @@
 @charset "UTF-8";
 
 @-webkit-keyframes anitest 
-{
-	0% { -webkit-transform: rotate3d(0,0,0,0deg); }
-	100% { -webkit-transform: rotate3d(0,1,1,200deg); }
-}
+{	0% { -webkit-transform: rotate3d(0,0,0,0deg); }
+	100% { -webkit-transform: rotate3d(0,1,1,200deg); }}
+	
 @-webkit-keyframes colorani
-{
-	0% { background-color: red; }
-	100% { background-color: blue; }
-}
+{	0% { background-color: red; }
+	100% { background-color: blue; }}
 
 body { -webkit-perspetive: 500; perspective: 500;}
 div { height: 400px; width: 400px; color: gray; border: 2px solid black; font-size: 20px; }
+a { border: 2px solid black; }
 
 #aniTEST { -webkit-animation: anitest 3s infinite ease alternate,
 					colorani 4s infinite cubic-bezier(0.25, 0.1, 0.25, 1.0) alternate; }
 
 #logo { height: 100px; width: 300px; -webkit-animation: colorani 6s cubic-bezier(0.25, 0.1, 0.25, 1.0); }
 
-a { border: 2px solid black; }
+#marqTest { 	width: 150px;
+			white-space: nowrap;
+			overflow: hidden;
+			overflow-x: -webkit-marquee;
+			-webkit-marquee-direction: forwards;
+			-webkit-marquee-style: scroll;
+			-webkit-marquee-speed: normal; //I changed this to `slow` - without effect
+			-webkit-marquee-increment: small;
+			-webkit-marquee-repetition: 5;
+			
+//			overflow-x: marquee-line;
+//			marquee-direction: forward;
+//			marquee-style: scroll;
+//			marquee-speed: normal;  //I changed this to `slow` - without effect
+}
+
 //div:hover { -webkit-transform: scale(2); }

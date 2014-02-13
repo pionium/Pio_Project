@@ -1,5 +1,8 @@
 window.onload = function() {
 document.getElementById('logo').onclick = function() {
-	alert('Clicked!');
+	alert('Clicked! ' + counters);
+	counters++;
 }
 }
+
+var counters = 1;
