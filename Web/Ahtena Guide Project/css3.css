@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@font-face {	font-family: "NanumGothic";
+				src: url(fonts/NanumGothic.ttf); }
+@font-face {	font-family: "NanumGothicBold";
+				src: url (fonts/NanumGothicBold.ttf); }
+
+body { 	background-color : rgb(215, 215, 215); }
+header { 	background-color : rgba(190, 190, 190, 0.75);
+		font-family : "NanumGothic", serif, san-serif}
