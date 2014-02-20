@@ -18,9 +18,20 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- <meta http-equiv="refresh" content="refresh times with second"> -->
+
 </head>
 
 <body>
+<?php
+$db_host = "";
+$db_user = "";
+$db_passwd = "";
+$db_name = "";
+
+$conn = mysqli_connect($db_host,$db_user,$db_passwd,$db_name);
+if (mysqli_connect_errno($conn)) { echo "데이터베이스 연결 실패: " . mysqli_connect_error();}
+else { echo "데이터베이스 연결 성공.";}
+?>
 	<section>
 		<header id="header">
 			<div id="select">
