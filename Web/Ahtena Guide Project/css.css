@@ -7,4 +7,8 @@
 body { 	background-color : rgb(215, 215, 215);
 		font-family : "NanumGothic", serif, san-serif; }
 	
-div {	background-color : rgba(190, 190, 190, 0.75); }
+#select {	background-color : rgba(190, 190, 190, 0.75); }
+
+.db {	background-color : rgb(255, 255, 255);
+		display : none;
+		border : 2px solid black; }

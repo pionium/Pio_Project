@@ -1,23 +1,23 @@
 ﻿<!doctype html>
-<html lang="kr">
+<html lang='kr'>
 
 <head>
-<meta name="Generator" content="athena guide">
-<meta name="Author" content="Pionium">
-<meta name="Keywords" content="athena,ragnarok,sever">
-<meta name="Description" content="This page is the guide for install athena sever.">
-<meta charset="UTF-8">
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name='Generator' content='athena guide'>
+<meta name='Author' content='Pionium'>
+<meta name='Keywords' content='athena,ragnarok,sever'>
+<meta name='Description' content='This page is the guide for install athena sever.'>
+<meta charset='UTF-8'>
+<meta name='viewport' content='user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width'>
 
 <title>Athena Install Guide</title>
 
-<link rel="stylesheet" href="css.css" />
-<script src="js.js" defer></script>
-<link rel="shortcut icon" href="shortcut.png" />
-<!-- <link type="text/css" rel="stylesheet" href="" /> -->
+<link rel='stylesheet' href='css.css' />
+<script src='js.js' defer></script>
+<link rel='shortcut icon' href='shortcut.png' />
+<!-- <link type='text/css' rel='stylesheet' href='' /> -->
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- <meta http-equiv="refresh" content="refresh times with second"> -->
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<!-- <meta http-equiv='refresh' content='refresh times with second'> -->
 
 </head>
 
@@ -30,20 +30,33 @@ $db_name = "";
 
 $conn = mysqli_connect($db_host,$db_user,$db_passwd,$db_name);
 if (mysqli_connect_errno($conn)) { echo "데이터베이스 연결 실패: " . mysqli_connect_error();}
-else { echo "데이터베이스 연결 성공.";}
+else { echo "데이터베이스 연결 성공." . "<br>";}
+
+$tempo = mysqli_query($conn,"SELECT * FROM sort");
+
+while($row = mysqli_fetch_array($tempo))
+{
+	echo "<div class='db'>";
+	echo $row['id'] . " " . $row['system'];
+	echo "<br></div>";
+}
+
+mysqli_close($conn);
 ?>
 	<section>
-		<header id="header">
-			<div id="select">
-				정렬방식 :	<select id="sort" onChange="sortChoose()">
+		<header id='header'>
+			<div id='select'>
+			정렬방식 :	<select id='sort' onChange='sortChoose()'>
 							<option selected>정렬방식을 선택하세요.</option>
-							<option value="step">설치 순서로</option>
-							<option value="section">설치 방법으로</option>
-							<option value="system">시스템 별로</option>
-							<option value="custom">검색 우선 순위로</option>
+							<option value='step'>설치 순서로</option>
+							<option value='section'>설치 방법으로</option>
+							<option value='system'>시스템 별로</option>
+							<option value='custom'>검색 우선 순위로</option>
+							<option value='hidden'>감추기</option>
+							<option value='unhidden'>보이기</option>
 						</select>
 			</div>
-<!--					<button type="button" onclick="testFunc()">정렬</button>	-->
+<!--			<button type='button' onclick='FUNCTION()'>정렬</button>	-->
 		</header>
 	</section>
 	<section>
@@ -51,7 +64,7 @@ else { echo "데이터베이스 연결 성공.";}
 	</section>
 	<section>
 		<!-- Athena Guide 정렬 출력 구역 -->
-		<div id="drawMain"></div>
+		<div id='drawMain'></div>
 	</section>
 </body>
 </html>

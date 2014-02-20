@@ -1,16 +1,16 @@
-var sortOp = document.getElementById("sort");
+var selectOp = document.getElementById("sort");
 var sort_draw = document.getElementById("drawMain");
+var phpdb = document.getElementsByClassName("db");
+var dis = "inline";
 	
 function sortChoose() {
-	if (sortOp.selectedIndex == 0) {
-		sort_draw.innerHTML = "";
-	} else {
-		//alert(sortOp.options[sortOp.selectedIndex].value);
-		//sort_draw.innerHTML = sortOp.options[sortOp.selectedIndex].text;
-		dataReq(sortOp.selectedIndex);
+	if (selectOp.selectedIndex == 6 | selectOp.selectedIndex == 5) {
+		for(var i = 0;i <= phpdb.length - 1; i++)
+			{ phpdb[i].style.display == dis ? phpdb[i].style.display = "none" : phpdb[i].style.display = dis; }
 	}
+	whatUChoose();
 }
 
-function dataReq(sOption) {
-	
+function whatUChoose() {
+	sort_draw.innerHTML = selectOp.options[selectOp.selectedIndex].text;
 }
