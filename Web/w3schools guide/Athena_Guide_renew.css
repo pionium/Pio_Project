@@ -1,0 +1,23 @@
+@charset "UTF-8";
+@font-face {	font-family: "NanumGothic";	src: url(fonts/NanumGothic.ttf);}
+@font-face {	font-family: "NanumGothicBold";	src: url (fonts/NanumGothicBold.ttf);}
+
+@-webkit-keyframes systHoverAni { 0% {}		100% {background-color: #9370DB;}}
+@-webkit-keyframes stepHoverAni { 0% {}		100% {background-color: #F08080;}}
+@keyframes systHoverAni	{ 0% {}		100% {background-color: #9370DB;}}
+@keyframes stepHoverAni	{ 0% {}		100% {background-color: #F08080;}}
+
+*	{ margin : 0px; padding : 0px;}
+body	{ background-color : LightSteelBlue; font-family : "NanumGothic", serif, san-serif;}
+section div ul	{ list-style-type : none; margin : 2px;}
+section#database, section#refDatabase	{ display : none; margin : 10px;}
+header nav div#select	{ display : inline-block; background-color : Lavender; padding : 10px; margin : 20px 0px 0px 20px; box-shadow : 3px 3px 5px black;}
+section div#mainDatabase	{ display : block; background-color : Beige; border : 1px solid grey;}
+
+section div ul li *	{ display : inline-block; background-color : white; width : 95px; height : 30px; box-shadow : 3px 3px 4px black; margin-right : 5px;}
+section div ul li .row1	{ font-weight : bold;}
+section div ul li .showContent	{ background-color : LightBlue; width : 25px; height : inherit;}
+section div ul li .more	{ background-color : LightBlue; width : 18px; height : inherit;}
+
+section div ul li div:hover	{ -webkit-animation : systHoverAni 0.5s; animation : systHoverAni 0.5s;}
+section div ul li aside:hover	{ -webkit-animation : stepHoverAni 0.5s; animation : stepHoverAni 0.5s;}

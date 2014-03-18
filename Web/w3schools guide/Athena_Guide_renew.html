@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang='kr'>
+
+<head>
+<meta name='Generator' content='athena guide'>
+<meta name='Author' content='Pionium'>
+<meta name='Keywords' content='athena,ragnarok,sever'>
+<meta name='Description' content='This page is the guide for install athena sever.'>
+<meta charset='UTF-8'>
+<meta name='viewport' content='user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width'>
+
+<title>Athena Install Guide</title>
+
+<link rel='stylesheet' href='Athena_Guide_renew.css' />
+<script src='Athena_Guide_renew.js' defer></script>
+<link rel='shortcut icon' href='shortcut.png' />
+<!--<link type='text/css' rel='stylesheet' href='' /> -->
+
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<!-- <meta http-equiv='refresh' content='refresh times with second'> -->
+
+</head>
+
+<body>
+	<header>
+		<nav>
+			<div id='select'>
+				정렬방식 :
+				<select id='sortWay' onChange='sortChoose()'>
+					<option selected>정렬방식을 선택하세요.</option>
+					<option value='syst'>시스템 별로</option>
+					<option value='step'>진행 순서로</option>
+					<option value='installWay'>방법 순서로</option>
+					<option value='custom'>검색 순서로</option>
+				</select>
+			</div>
+		</nav>
+	</header>
+	
+	<section id='database'>
+<?php
+	$conn = mysqli_connect("localhost", "", "", "");
+	if (mysqli_connect_errno($conn)) { echo "데이터베이스 연결 실패: " . mysqli_connect_error();}
+
+	$syst = mysqli_query($conn,"SELECT * FROM sort");
+	$step = mysqli_query($conn,"SELECT * FROM step");
+	$link = mysqli_query($conn,"SELECT * FROM link");
+	
+	echo "<div id='mainDatabase'>";
+	for($i = 1;$rows = mysqli_fetch_array($syst);$i++)
+	{
+		echo "<ul class='Column" . $i . "'>";
+		$j = 1;
+		while($rows[$j] !== NULL)
+		{
+			echo "<li class='container'>";
+			if($rows[$j] != "0")
+			{
+				echo "<div class='row" . $j . "' onclick='explain()'>" . $rows[$j];
+				if($j == 1)
+					echo "</div><div class='showContent' onclick='showContent()'>＞</div>";
+				else
+					echo "</div><aside class='more' onhover='asideHover()' onclick='more()'>＞</aside>";
+			}
+			else
+				echo "<div class='noContent'>-</div>";
+			echo "</li>";
+			$j++;
+		}
+		echo "</ul>";
+	}
+	echo "</div></section>";
+	echo "<section id='refDatabase'><table id='step'>";
+	for($i = 1;$rows = mysqli_fetch_array($step);$i++)
+	{
+		$j = 1;
+		echo "<tr class='Column" . $i . "'>";
+		while($rows[$j] !== NULL)
+		{
+			if($rows[$j] != "0")
+			{
+				echo "<td class='row" . $j . "'>" . $rows[$j] . "</td>";
+			}
+			else
+				echo "<td class='row" . $j . "'>-</td>";
+			$j++;
+		}
+		echo "</tr>";
+	}
+	echo "</table><table id='link'>";
+	for($i = 1;$rows = mysqli_fetch_array($link);$i++)
+	{
+		$j = 1;
+		echo "<tr class='Column" . $i . "'>";
+		while($rows[$j] !== NULL)
+		{
+			if($rows[$j] != "0")
+			{
+				echo "<td class='row" . $j . "'>" . $rows[$j] . "</td>";
+			}
+			else
+				echo "<td class='row" . $j . "'>-</td>";
+			$j++;
+		}
+		echo "</tr>";
+	}
+	echo "</table></section>";
+	mysqli_close($conn);
+?>
+</body>
+</html>
