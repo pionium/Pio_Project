@@ -17,4 +17,15 @@ function re_size() {
 	//main section outer width is 625px
 	//main section width is 563px
 	//main section margin + border + padding is 62px
+	
+	if(Number(window.innerHeight) <= 796) {
+		//$("#wrap").height("776px");
+		$("#main").height("600px");
+	} else {
+		//$("#wrap").height(window.innerWidth - 20 + "px");
+		$("#main").height((Number(window.innerHeight) - 196) + "px");
+	}
+	//body header height is 42px
+	//body footer height is 57px
+	//body section outer height is 77px
 }
